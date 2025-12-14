@@ -1,81 +1,260 @@
-# CyberKit v1.0
+# CyberKit
 
-CyberKit is an open-source cybersecurity tool suite designed for security professionals, developers, and enthusiasts. It offers a collection of utilities for analyzing, testing, and managing the security of applications and networks.
+<div align="center">
 
-## Project Description
+**🛡️ Open-Source Cybersecurity Toolkit for Security Professionals & Developers**
 
-CyberKit aims to provide a unified and intuitive platform to access essential cybersecurity tools. The project is developed with a focus on ease of use, modularity, and extensibility, making it suitable for both learning and professional use. As an open-source project, it encourages collaboration and community contributions to improve and expand its functionalities.
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/Version-1.0-green.svg)](releases)
+[![TypeScript](https://img.shields.io/badge/Built%20with-TypeScript-3178C6?logo=typescript)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Powered%20by-Vite-646CFF?logo=vite)](https://vitejs.dev/)
+[![React](https://img.shields.io/badge/UI%20Framework-React-61DAFB?logo=react)](https://react.dev/)
 
-## 🌐​ TEST NOW ON : [cyberkit.highmark.it](https://cyberkit.highmark.it) 🌐​
-<img width="1919" height="912" alt="image" src="https://github.com/user-attachments/assets/f704f5dd-862b-440d-b0e7-6c9c1d38b81c" />
+[Live Demo](https://cyberkit.highmark.it) • [Documentation](#-documentation) • [Features](#-key-features) • [Installation](#-installation) • [Contributing](#-contributing)
 
-## Key Features
+</div>
 
-*   **Encoder/Decoder:** Tools for encoding and decoding various data formats.
-*   **HTTP Header Analyzer:** Analyzes HTTP headers to identify potential vulnerabilities or misconfigurations.
-*   **Hash Generator:** Generates hashes for different algorithms (MD5, SHA-1, SHA-256, etc.).
-*   **Log Analyzer:** Assists in analyzing log files to identify anomalies or security events.
-*   **Password Checker:** Evaluates password strength.
-*   **Password Generator:** Creates strong and random passwords.
-*   **Ping:** Utility for testing network connectivity.
-*   **SSL Checker:** Checks the SSL/TLS configuration of a website.
-*   **Traceroute:** Traces the path of network packets.
-*   **Whois:** Retrieves registration information for domains and IP addresses.
-*   **XSS Detector:** Tool for identifying potential Cross-Site Scripting vulnerabilities.
-*   **Intuitive User Interface:** A modern and responsive interface for easy navigation and use of the tools.
+---
 
-## Installation
+## 📋 About
 
-To set up the CyberKit project locally, follow these steps:
+CyberKit is a modern, intuitive cybersecurity toolkit suite providing essential utilities for security professionals, penetration testers, developers, and IT enthusiasts. Whether you're analyzing security headers, cracking hashes, detecting vulnerabilities, or testing network connectivity, CyberKit delivers a unified platform with a beautiful, responsive UI.
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/HighMark-31/cyberkit.git
-    cd cyberkit
-    ```
-2.  **Install dependencies:**
-    Ensure you have Node.js and npm (or Yarn/Bun) installed.
-    ```bash
-    npm install
-    # or yarn install
-    # or bun install
-    ```
-3.  **Start the application in development mode:**
-    ```bash
-    npm run dev
-    # or yarn dev
-    # or bun dev
-    ```
-    The application will be available at `http://localhost:8080` (or a similar port).
+**Built for:** Security testing • Penetration testing • Security education • DevOps workflows • Network diagnostics
 
-## Usage
+---
 
-After starting the application, navigate through the sidebar to access the various tools. Each tool is designed to be self-explanatory, with clear inputs and outputs.
+## ✨ Key Features
 
-You can also use the online version of CyberKit at [cyberkit.highmark.it](https://cyberkit.highmark.it).
+### 🔧 Security Tools
 
-## Contribution
+- **Encoder/Decoder** — Convert between Base64, URL encoding, Hex, and more formats
+- **Hash Generator** — Generate hashes (MD5, SHA-1, SHA-256, SHA-512, Blake3, etc.)
+- **Password Checker** — Evaluate password strength with detailed feedback
+- **Password Generator** — Create cryptographically secure random passwords
+- **XSS Detector** — Identify potential Cross-Site Scripting vulnerabilities
+- **SSL/TLS Checker** — Analyze SSL certificates and TLS configurations
+- **HTTP Header Analyzer** — Identify security misconfigurations and vulnerabilities
+- **Log Analyzer** — Parse and analyze log files for security events
 
-CyberKit is an open-source project and welcomes contributions from the community. If you wish to contribute, follow these steps:
+### 🌐 Network Tools
 
-1.  Fork the repository.
-2.  Create a new branch (`git checkout -b feature/new-feature`).
-3.  Make your changes.
-4.  Run tests (`npm test`).
-5.  Commit your changes (`git commit -m 'Add new feature'`).
-6.  Push to the branch (`git push origin feature/new-feature`).
-7.  Open a Pull Request.
+- **Ping** — Test network connectivity and latency
+- **Traceroute** — Trace packet routes across networks
+- **Whois** — Retrieve domain and IP registration information
 
-## Star the Project
+### 💡 User Experience
 
-If you find CyberKit useful, please consider starring the project on GitHub! Your support helps us grow and improve.
+- ⚡ **Lightning-fast performance** with Vite + React
+- 📱 **Fully responsive design** — Works on desktop, tablet, and mobile
+- 🎨 **Modern UI** with intuitive navigation
+- 🔄 **Real-time results** for immediate feedback
+- 📋 **Copy-to-clipboard** for all outputs
+- 🌙 **Dark mode support** (modern interface)
 
-[![Star on GitHub](https://img.shields.io/github/stars/HighMark-31/cyberkit?style=social)](https://github.com/HighMark-31/cyberkit)
+---
 
-## License
+## 🚀 Getting Started
 
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
+### Quick Demo
 
-## Contact
+Try CyberKit online: **[cyberkit.highmark.it](https://cyberkit.highmark.it)**
 
-For questions or suggestions, you can open an issue on the GitHub repository or contact me trought my personal site [highmark.it](https://highmark.it).
+### Local Installation
+
+**Prerequisites:**
+- Node.js 16+ (or Bun 1.0+)
+- npm, yarn, or Bun package manager
+
+**Step 1: Clone the repository**
+
+```bash
+git clone https://github.com/HighMark-31/cyberkit.git
+cd cyberkit
+```
+
+**Step 2: Install dependencies**
+
+```bash
+# Using npm
+npm install
+
+# OR using yarn
+yarn install
+
+# OR using Bun (fastest)
+bun install
+```
+
+**Step 3: Start development server**
+
+```bash
+# Using npm
+npm run dev
+
+# OR using yarn
+yarn dev
+
+# OR using Bun
+bun run dev
+```
+
+The app will be available at `http://localhost:5173` (or similar port shown in terminal)
+
+**Step 4: Build for production**
+
+```bash
+npm run build    # Creates optimized build in 'dist/'
+npm run preview  # Preview production build locally
+```
+
+---
+
+## 📖 Usage
+
+1. **Open the application** in your browser (local or [live demo](https://cyberkit.highmark.it))
+2. **Select a tool** from the sidebar navigation
+3. **Input your data** in the designated fields
+4. **View results instantly** with formatted output
+5. **Copy results** with the built-in copy button
+
+### Example Workflows
+
+**Generate a Secure Password:**
+- Navigate to `Password Generator`
+- Customize length and character types
+- Click generate and copy to clipboard
+
+**Analyze HTTP Headers:**
+- Go to `HTTP Header Analyzer`
+- Paste headers from your browser DevTools
+- Get security recommendations
+
+**Check SSL Certificate:**
+- Open `SSL Checker`
+- Enter domain name
+- View certificate details and expiration
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose | Version |
+|-----------|---------|----------|
+| **TypeScript** | Type-safe JavaScript | Latest |
+| **React** | UI Framework | 19+ |
+| **Vite** | Build tool & dev server | 5+ |
+| **Tailwind CSS** | Styling | 3+ |
+| **Node.js** | Runtime | 16+ |
+
+---
+
+## 📁 Project Structure
+
+```
+cyberkit/
+├── src/
+│   ├── components/     # React components for each tool
+│   ├── lib/           # Utility functions and logic
+│   ├── App.tsx        # Main application
+│   └── main.tsx       # Entry point
+├── public/            # Static assets
+├── package.json       # Dependencies
+└── vite.config.ts     # Vite configuration
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how to contribute:
+
+### Fork & Clone
+
+```bash
+git clone https://github.com/YOUR-USERNAME/cyberkit.git
+cd cyberkit
+```
+
+### Create a Feature Branch
+
+```bash
+git checkout -b feature/your-feature-name
+```
+
+### Make Your Changes
+
+- Add new tools or improve existing ones
+- Update tests if applicable
+- Follow the existing code style
+
+### Commit & Push
+
+```bash
+git add .
+git commit -m "feat: add new security tool"
+git push origin feature/your-feature-name
+```
+
+### Open a Pull Request
+
+Go to GitHub and create a PR with a clear description of your changes.
+
+### Development Checklist
+
+- ✅ Code follows TypeScript best practices
+- ✅ Components are properly documented
+- ✅ Responsive design verified
+- ✅ No console errors or warnings
+- ✅ Tested on multiple browsers
+
+---
+
+## 🐛 Issue Template
+
+When reporting bugs, please include:
+
+- Browser and OS information
+- Steps to reproduce the issue
+- Expected vs. actual behavior
+- Screenshots if applicable
+
+---
+
+## 📝 License
+
+This project is licensed under the [MIT License](LICENSE) — feel free to use it for personal and commercial projects.
+
+---
+
+## 💬 Support & Contact
+
+- **Issues & Suggestions:** [GitHub Issues](https://github.com/HighMark-31/cyberkit/issues)
+- **Website:** [highmark.it](https://highmark.it)
+- **GitHub:** [@HighMark-31](https://github.com/HighMark-31)
+
+---
+
+## ⭐ Show Your Support
+
+If CyberKit helped you or you find it useful, please consider:
+
+1. **Starring** this repository ⭐
+2. **Sharing** it with your security-focused friends
+3. **Contributing** improvements and new tools
+
+---
+
+## 📊 Status
+
+- ✅ v1.0 Released
+- 🔄 Active development & improvements
+- 📦 Ready for production use
+
+---
+
+<div align="center">
+
+**Made with ❤️ by [HighMark](https://github.com/HighMark-31) | MIT License**
+
+</div>
