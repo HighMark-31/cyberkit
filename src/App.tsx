@@ -1,7 +1,7 @@
 // *************** RESPECT THE LICENSE OF PROJECT ***************
 // ---------------     Code by HighMark.it        ----------------
 // Link - Site : https://highmark.it | GitHub : https://github.com/HighMark-31/cyberkit
-// -------- I have lost 30 hours of my life for this -------------
+
 // *************** RESPECT THE LICENSE OF PROJECT ***************
 
 import { Toaster } from "@/components/ui/toaster";
@@ -28,6 +28,12 @@ import { ChmodCalculator } from "@/components/tools/ChmodCalculator";
 import { ExifViewer } from "@/components/tools/ExifViewer";
 import { UrlParser } from "@/components/tools/UrlParser";
 import { Terminal } from "@/components/tools/Terminal";
+import { SteganographyLab } from "@/components/tools/SteganographyLab";
+import { WebsiteScanner } from "@/components/tools/WebsiteScanner";
+import { SherlockWeb } from "@/components/tools/SherlockWeb";
+import { DNSRecon } from "@/components/tools/DNSRecon";
+import { SubdomainFinder } from "@/components/tools/SubdomainFinder";
+import { FileMetadataScanner } from "@/components/tools/FileMetadataScanner";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -58,6 +64,12 @@ const App = () => (
             <Route path="/exif-viewer" element={<ExifViewer />} />
             <Route path="/url-parser" element={<UrlParser />} />
             <Route path="/terminal" element={<Terminal />} />
+            <Route path="/steganography-lab" element={<SteganographyLab />} />
+            <Route path="/website-scanner" element={<WebsiteScanner />} />
+            <Route path="/sherlock-web" element={<SherlockWeb />} />
+            <Route path="/dns-recon" element={<DNSRecon />} />
+            <Route path="/subdomain-finder" element={<SubdomainFinder />} />
+            <Route path="/metadata-scanner" element={<FileMetadataScanner />} />
             {}
             <Route path="*" element={<NotFound />} />
           </Routes>

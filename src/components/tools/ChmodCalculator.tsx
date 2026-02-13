@@ -7,9 +7,9 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 
 export const ChmodCalculator = () => {
   const [permissions, setPermissions] = useState({
-    owner: { read: true, write: true, execute: false }, // 6
-    group: { read: true, write: false, execute: false }, // 4
-    public: { read: true, write: false, execute: false }, // 4
+    owner: { read: true, write: true, execute: false }, 
+    group: { read: true, write: false, execute: false }, 
+    public: { read: true, write: false, execute: false }, 
   });
 
   const [numeric, setNumeric] = useState('644');

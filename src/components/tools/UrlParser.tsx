@@ -31,14 +31,13 @@ export const UrlParser = () => {
         });
         setParams(newParams);
       } catch (e) {
-        // Invalid URL, ignore
       }
     }
   }, [inputUrl]);
 
   const rebuildUrl = () => {
     try {
-      const url = new URL('https://example.com'); // Placeholder base
+      const url = new URL('https://example.com'); 
       url.protocol = protocol.replace(/:$/, '') + ':';
       url.hostname = hostname;
       url.pathname = pathname.startsWith('/') ? pathname : '/' + pathname;

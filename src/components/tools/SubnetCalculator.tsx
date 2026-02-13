@@ -41,14 +41,12 @@ export const SubnetCalculator = () => {
       if (addr.kind() === 'ipv4') {
         const ipv4 = addr as ipaddr.IPv4;
         
-        // Validate CIDR for IPv4
         if (prefix < 0 || prefix > 32) throw new Error('Invalid CIDR for IPv4 (0-32)');
 
-        // Calculate subnet details manually for precision
         const ipNum = ipv4.toByteArray().reduce((acc, byte) => (acc << 8) + byte, 0);
         const maskNum = 0xFFFFFFFF << (32 - prefix);
         const networkNum = ipNum & maskNum;
-        const broadcastNum = networkNum | (~maskNum >>> 0); // Unsigned shift
+        const broadcastNum = networkNum | (~maskNum >>> 0); 
         
         const firstUsableNum = networkNum + 1;
         const lastUsableNum = broadcastNum - 1;
@@ -65,7 +63,6 @@ export const SubnetCalculator = () => {
         const totalHosts = Math.pow(2, 32 - prefix);
         const usableHosts = totalHosts > 2 ? totalHosts - 2 : 0;
         
-        // Use library for standard mask string if possible, or calculate
         const maskString = numToIp(maskNum);
 
         setResult({
@@ -81,7 +78,6 @@ export const SubnetCalculator = () => {
         });
 
       } else if (addr.kind() === 'ipv6') {
-        // IPv6 Logic
         const ipv6 = addr as ipaddr.IPv6;
         if (prefix < 0 || prefix > 128) throw new Error('Invalid CIDR for IPv6 (0-128)');
         

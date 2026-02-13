@@ -60,7 +60,6 @@ export const Terminal = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Auto-scroll to bottom
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
@@ -188,7 +187,6 @@ export const Terminal = () => {
         </div>
       )
     },
-    // Networking
     ping: { name: 'ping', description: 'Send ICMP ECHO_REQUEST', action: (args) => `PING ${args[0] || 'localhost'} (127.0.0.1): 56 data bytes\n64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.045 ms` },
     ifconfig: { name: 'ifconfig', description: 'Configure a network interface', action: () => 'eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\n        inet 192.168.1.105  netmask 255.255.255.0  broadcast 192.168.1.255' },
     ip: { name: 'ip', description: 'Show / manipulate routing, devices', action: () => '1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000\n    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00' },
@@ -198,7 +196,6 @@ export const Terminal = () => {
     ssh: { name: 'ssh', description: 'OpenSSH SSH client', action: (args) => args[0] ? `Connecting to ${args[0]}...\nPermission denied (publickey).` : 'usage: ssh destination' },
     nmap: { name: 'nmap', description: 'Network exploration tool', action: (args) => `Starting Nmap 7.92 ( https://nmap.org ) at ${new Date().toLocaleTimeString()}\nNmap scan report for ${args[0] || 'localhost'}\nHost is up (0.00034s latency).\nNot shown: 998 closed tcp ports (conn-refused)\nPORT   STATE SERVICE\n80/tcp open  http\n443/tcp open https` },
     
-    // System
     ps: { name: 'ps', description: 'Report a snapshot of the current processes', action: () => '  PID TTY          TIME CMD\n 1337 pts/0    00:00:00 bash\n 1338 pts/0    00:00:00 ps' },
     top: { name: 'top', description: 'Display Linux processes', action: () => 'top - 10:00:00 up 1 day,  2:30,  1 user,  load average: 0.00, 0.01, 0.05' },
     uname: { name: 'uname', description: 'Print system information', action: (args) => args.includes('-a') ? 'Linux cyberkit 5.15.0-generic #1 SMP Thu Jan 1 00:00:00 UTC 2024 x86_64 GNU/Linux' : 'Linux' },
@@ -210,7 +207,6 @@ export const Terminal = () => {
     id: { name: 'id', description: 'Print user and group IDs', action: () => 'uid=0(root) gid=0(root) groups=0(root)' },
     env: { name: 'env', description: 'Run a program in a modified environment', action: () => 'SHELL=/bin/bash\nTERM=xterm-256color\nUSER=root\nPATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin' },
     
-    // File Ops
     mkdir: { name: 'mkdir', description: 'Make directories', action: () => 'Permission denied (read-only filesystem)' },
     rm: { name: 'rm', description: 'Remove files or directories', action: () => 'Permission denied (read-only filesystem)' },
     cp: { name: 'cp', description: 'Copy files and directories', action: () => 'Permission denied (read-only filesystem)' },
@@ -222,7 +218,6 @@ export const Terminal = () => {
     less: { name: 'less', description: 'Opposite of more', action: () => 'Missing filename' },
     more: { name: 'more', description: 'File perusal filter for crt viewing', action: () => 'Missing filename' },
     
-    // Fun / Misc
     matrix: { name: 'matrix', description: 'Enter the matrix', action: () => <span className="text-green-500 animate-pulse">Wake up, Neo...</span> },
     sl: { name: 'sl', description: 'Steam Locomotive', action: () => '🚂🚃🚃🚃🚃' },
     cowsay: { name: 'cowsay', description: 'Configurable speaking cow', action: (args) => {
@@ -244,7 +239,6 @@ export const Terminal = () => {
     factor: { name: 'factor', description: 'Factor numbers', action: (args) => args[0] ? `${args[0]}: ${args[0]}` : 'missing operand' },
     yes: { name: 'yes', description: 'Output a string repeatedly until killed', action: () => 'y\ny\ny\ny\n...' },
     
-    // Hacking Tools (Simulated)
     sqlmap: { name: 'sqlmap', description: 'Automatic SQL injection tool', action: () => '[*] starting at 10:00:00\n[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal.\n[*] testing connection to the target URL' },
     nikto: { name: 'nikto', description: 'Web server scanner', action: () => '- Nikto v2.1.6\n+ Target Host: localhost\n+ Target Port: 80\n+ Start Time: 2024-01-01 10:00:00' },
     hydra: { name: 'hydra', description: 'Login cracker', action: () => 'Hydra v9.1 (c) 2020 by van Hauser/THC\n[DATA] max 16 tasks per 1 server, overall 16 tasks, 1 login try (l:1/p:1), ~0 tries per task\n[STATUS] attack finished' },
@@ -254,13 +248,11 @@ export const Terminal = () => {
     john: { name: 'john', description: 'John the Ripper password cracker', action: () => 'John the Ripper 1.9.0-jumbo-1 OMP [linux-gnu 64-bit AVX2 AC] \nLoaded 1 password hash (Descrypt, traditional crypt(3) [DES 128/128 AVX-512])' },
     hashcat: { name: 'hashcat', description: 'Advanced password recovery', action: () => 'hashcat (v6.1.1) starting...\n\nOpenCL API (OpenCL 2.1 PoCL 1.6, None+Asserts, LLVM 11.0.0, RELOC, SLEEF, DISTRO, POCL_DEBUG)' },
     
-    // Editors
     vi: { name: 'vi', description: 'Screen oriented (visual) display editor', action: () => 'VIM - Vi IMproved\n\nversion 8.2\nby Bram Moolenaar et al.' },
     vim: { name: 'vim', description: 'Vi IMproved, a programmers text editor', action: () => 'VIM - Vi IMproved' },
     nano: { name: 'nano', description: 'Nano\'s ANOther editor, an enhanced free Pico clone', action: () => 'GNU nano 5.4' },
     emacs: { name: 'emacs', description: 'GNU Emacs', action: () => 'Welcome to GNU Emacs' },
     
-    // Adding more to reach closer to 100...
     alias: { name: 'alias', description: 'Define or display aliases', action: () => 'alias ls=\'ls --color=auto\'' },
     unalias: { name: 'unalias', description: 'Remove alias definitions', action: () => '' },
     export: { name: 'export', description: 'Set export attribute for shell variables', action: () => '' },
