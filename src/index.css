@@ -5,59 +5,84 @@
 
 @layer base {
   :root {
-    --background: 220 27% 8%;
-    --foreground: 210 40% 98%;
-    --card: 220 39% 11%;
-    --card-foreground: 210 40% 98%;
-    --popover: 220 39% 11%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217 91% 60%;
-    --primary-foreground: 220 27% 8%;
-
-    --secondary: 220 50% 14%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 220 50% 14%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 187 85% 53%;
-    --accent-foreground: 220 27% 8%;
-
-    --success: 142 71% 45%;
-    --success-foreground: 210 40% 98%;
-
-    --warning: 38 92% 50%;
-    --warning-foreground: 220 27% 8%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 50% 20%;
-    --input: 220 50% 14%;
-    --ring: 217 91% 60%;
-
-    --radius: 0.75rem;
-
-    --cyber-glow: 217 91% 60%;
-    --code-bg: 220 50% 10%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
     
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(187 85% 53%));
-    --gradient-card: linear-gradient(145deg, hsl(220 39% 11%), hsl(220 50% 14%));
-    --gradient-danger: linear-gradient(135deg, hsl(0 84% 60%), hsl(14 91% 43%));
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    
+    --primary: 221 83% 53%; 
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    
+    --accent: 221 83% 53%;
+    --accent-foreground: 240 5.9% 10%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark, :root {
+    --background: 224 71% 4%; 
+    --foreground: 210 40% 98%;
+    
+    --card: 222 47% 11%; 
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 217 91% 60%; 
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 217 91% 60%;
+    
+    --cyber-glow: 217 91% 60%;
+    --code-bg: 222 47% 11%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(190 90% 50%));
+    --gradient-card: linear-gradient(145deg, hsl(222 47% 11%), hsl(220 40% 13%));
+    --gradient-danger: linear-gradient(135deg, hsl(0 62% 30%), hsl(0 70% 40%));
     --gradient-success: linear-gradient(135deg, hsl(142 71% 45%), hsl(158 64% 52%));
     
-    --shadow-glow: 0 0 20px hsl(var(--cyber-glow) / 0.3);
-    --shadow-card: 0 8px 32px hsl(220 50% 4% / 0.4);
+    --shadow-glow: 0 0 20px hsl(var(--cyber-glow) / 0.15);
+    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.2);
     
-    --transition-fast: 0.15s ease-out;
-    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 0.5s ease-out;
-
-    --sidebar-background: 220 27% 8%;
+    --sidebar-background: 224 71% 4%;
     --sidebar-foreground: 210 40% 98%;
     --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 220 27% 8%;
-    --sidebar-accent: 220 50% 14%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 33% 17%;
     --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 220 50% 20%;
+    --sidebar-border: 217 33% 17%;
     --sidebar-ring: 217 91% 60%;
   }
 }
@@ -69,13 +94,15 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    background-image: radial-gradient(circle at 25% 25%, hsl(220 50% 12% / 0.5) 0%, transparent 50%),
-                      radial-gradient(circle at 75% 75%, hsl(217 91% 60% / 0.1) 0%, transparent 50%);
+    background-image: 
+      radial-gradient(circle at 15% 50%, hsl(217 91% 60% / 0.08) 0%, transparent 25%),
+      radial-gradient(circle at 85% 30%, hsl(190 90% 50% / 0.08) 0%, transparent 25%);
   }
 
   code, pre, .font-mono {
-    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
   }
+
 
   ::-webkit-scrollbar {
     width: 8px;

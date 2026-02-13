@@ -21,7 +21,13 @@ import {
   ArrowRight,
   Zap,
   Target,
-  Lock as LockIcon
+  Lock as LockIcon,
+  Search,
+  Calculator,
+  Image,
+  Link as LinkIcon,
+  Terminal,
+  Cpu
 } from 'lucide-react';
 
 const toolCategories = [
@@ -44,27 +50,33 @@ const toolCategories = [
     ]
   },
   {
-    title: 'Encoding & Hashing',
-    description: 'Data transformation and integrity verification',
+    title: 'System & Terminal',
+    description: 'Command line simulation and system utilities',
     tools: [
       { 
-        name: 'Encoder/Decoder', 
-        href: '/encoder-decoder', 
-        icon: Code,
-        description: 'Base64, Hex, URL, and HTML encoding/decoding'
+        name: 'Terminal', 
+        href: '/terminal', 
+        icon: Terminal,
+        description: 'Full Linux terminal simulator with 100+ commands'
       },
       { 
-        name: 'Hash Generator', 
-        href: '/hash-generator', 
-        icon: Hash,
-        description: 'MD5, SHA family hash generation and validation'
+        name: 'Chmod Calculator', 
+        href: '/chmod-calculator', 
+        icon: Calculator,
+        description: 'Visual permission calculator (r/w/x)'
       }
     ]
   },
   {
-    title: 'Network Security',
-    description: 'Web security analysis and monitoring',
+    title: 'Network Analysis',
+    description: 'Network diagnostics and calculation tools',
     tools: [
+      { 
+        name: 'Subnet Calculator', 
+        href: '/subnet-calculator', 
+        icon: Cpu,
+        description: 'IPv4/IPv6 subnetting and CIDR calculation'
+      },
       { 
         name: 'HTTP Headers', 
         href: '/http-headers', 
@@ -76,12 +88,66 @@ const toolCategories = [
         href: '/ssl-checker', 
         icon: ShieldCheck,
         description: 'Examine SSL certificate details'
+      },
+      {
+        name: 'Traceroute',
+        href: '/traceroute',
+        icon: Network,
+        description: 'Trace packet path across network'
       }
     ]
   },
   {
-    title: 'Threat Analysis',
-    description: 'Security vulnerability detection',
+    title: 'OSINT & Recon',
+    description: 'Information gathering and intelligence',
+    tools: [
+      {
+        name: 'Google Dorks',
+        href: '/google-dorks',
+        icon: Search,
+        description: 'Generate advanced search queries'
+      },
+      {
+        name: 'Exif Viewer',
+        href: '/exif-viewer',
+        icon: Image,
+        description: 'Extract hidden metadata from images'
+      },
+      {
+        name: 'Whois',
+        href: '/whois',
+        icon: Network,
+        description: 'Lookup domain registration information'
+      }
+    ]
+  },
+  {
+    title: 'Web Utilities',
+    description: 'Data processing and manipulation',
+    tools: [
+      { 
+        name: 'URL Parser', 
+        href: '/url-parser', 
+        icon: LinkIcon,
+        description: 'Parse, build, and modify URLs'
+      },
+      { 
+        name: 'Encoder/Decoder', 
+        href: '/encoder-decoder', 
+        icon: Code,
+        description: 'Base64, Hex, URL, and HTML encoding'
+      },
+      { 
+        name: 'Hash Generator', 
+        href: '/hash-generator', 
+        icon: Hash,
+        description: 'MD5, SHA family hash generation'
+      }
+    ]
+  },
+  {
+    title: 'Threat Detection',
+    description: 'Vulnerability scanning and log analysis',
     tools: [
       {
         name: 'Log Analyzer',
@@ -94,24 +160,12 @@ const toolCategories = [
         href: '/xss-detector',
         icon: AlertTriangle,
         description: 'Detect and analyze XSS vulnerabilities'
-      }
-    ]
-  },
-  {
-    title: 'Network Info',
-    description: 'Network diagnostic and information tools',
-    tools: [
+      },
       {
         name: 'Ping',
         href: '/ping',
         icon: Zap,
         description: 'Test network connectivity and latency'
-      },
-      {
-        name: 'Whois',
-        href: '/whois',
-        icon: Network,
-        description: 'Lookup domain registration information'
       }
     ]
   }
@@ -140,141 +194,110 @@ const securityStats = [
 
 export const Dashboard = () => {
   return (
-    <div className="min-h-screen p-4 sm:p-6">
-      <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8">
-        {/* Header */}
-        <div className="text-center space-y-4">
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-3 mb-4">
-            <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
-              <Shield className="h-6 w-6 text-primary-foreground" />
+    <div className="min-h-screen p-6 sm:p-10 animate-in fade-in duration-500">
+      <div className="max-w-7xl mx-auto space-y-10">
+        {/* Header Section */}
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900/50 via-cyan-900/30 to-background border border-white/10 p-8 sm:p-12">
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[length:32px_32px]" />
+        <div className="relative z-10 max-w-2xl space-y-4">
+          <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 backdrop-blur-sm">
+            v2.0 Now Available
+          </Badge>
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+            Security Tools for the <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+              Modern Web
+            </span>
+          </h1>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            A professional suite of client-side cybersecurity utilities. 
+            Perform audits, generate secure credentials, and analyze threats directly from your browser.
+          </p>
+          <div className="flex flex-wrap gap-4 pt-4">
+            <Button size="lg" className="bg-white text-black hover:bg-white/90">
+              Get Started <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <Button size="lg" variant="outline" className="border-white/10 hover:bg-white/5">
+              View Documentation
+            </Button>
+          </div>
+        </div>
+        
+        {/* Decorative Element */}
+        <div className="absolute top-0 right-0 -translate-y-12 translate-x-12 opacity-50 blur-3xl pointer-events-none">
+          <div className="w-96 h-96 bg-primary/30 rounded-full" />
+        </div>
+      </div>
+
+      {/* Quick Stats Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {securityStats.map((stat, index) => {
+          const Icon = stat.icon;
+          return (
+            <div key={index} className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:scale-[1.02]">
+              <div className="flex items-start justify-between mb-4">
+                <div className="p-3 rounded-xl bg-white/5 group-hover:bg-primary/20 transition-colors">
+                  <Icon className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-colors" />
+                </div>
+                <Badge variant="secondary" className="bg-white/5 text-xs font-normal">
+                  Live
+                </Badge>
+              </div>
+              <div className="space-y-1">
+                <h3 className="text-3xl font-bold text-white">{stat.value}</h3>
+                <p className="font-medium text-muted-foreground">{stat.label}</p>
+                <p className="text-sm text-muted-foreground/60">{stat.description}</p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                CyberKit
-              </h1>
-              <p className="text-sm sm:text-base text-muted-foreground">Professional Security Tools Suite</p>
+          );
+        })}
+      </div>
+
+      {/* Tools Section */}
+      <div className="space-y-12">
+        {toolCategories.map((category, categoryIndex) => (
+          <div key={categoryIndex} className="space-y-6">
+            <div className="flex items-center gap-4">
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+              <h2 className="text-xl font-semibold text-white/90 px-4 py-1 rounded-full border border-white/5 bg-white/5 backdrop-blur-sm">
+                {category.title}
+              </h2>
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {category.tools.map((tool, toolIndex) => {
+                const Icon = tool.icon;
+                return (
+                  <Link
+                    key={toolIndex}
+                    to={tool.href}
+                    className="group relative flex flex-col p-6 rounded-2xl border border-white/5 bg-card/30 hover:bg-card/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+                    
+                    <div className="relative z-10 flex items-center justify-between mb-4">
+                      <div className="p-3 rounded-xl bg-background/50 border border-white/5 group-hover:border-primary/20 group-hover:text-primary transition-colors">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <ArrowRight className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                    </div>
+                    
+                    <div className="relative z-10 space-y-2">
+                      <h3 className="font-semibold text-lg text-white group-hover:text-primary transition-colors">
+                        {tool.name}
+                      </h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2">
+                        {tool.description}
+                      </p>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
-
-          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-            A comprehensive collection of cybersecurity tools for professionals.
-            All tools run client-side ensuring your data never leaves your device.
-          </p>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-          {securityStats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <Card key={index} className="cyber-card">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                      <Icon className="h-6 w-6 text-accent" />
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold">{stat.value}</div>
-                      <div className="text-sm text-muted-foreground">{stat.label}</div>
-                    </div>
-                  </div>
-                  <p className="text-sm text-muted-foreground mt-3">
-                    {stat.description}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-
-        {/* Tool Categories */}
-        <div className="space-y-8">
-          {toolCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="space-y-4">
-              <div className="space-y-2">
-                <h2 className="text-2xl font-bold">{category.title}</h2>
-                <p className="text-muted-foreground">{category.description}</p>
-              </div>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                {category.tools.map((tool, toolIndex) => {
-                  const Icon = tool.icon;
-                  return (
-                    <Card key={toolIndex} className="cyber-card hover:cyber-glow transition-all duration-smooth">
-                      <CardHeader className="pb-3">
-                        <CardTitle className="flex items-center justify-between">
-                          <div className="flex items-center space-x-3">
-                            <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                              <Icon className="h-4 w-4 text-primary" />
-                            </div>
-                            <span>{tool.name}</span>
-                          </div>
-                          <Badge variant="outline" className="text-accent">
-                            Ready
-                          </Badge>
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="space-y-4">
-                        <p className="text-sm text-muted-foreground">
-                          {tool.description}
-                        </p>
-                        <Button asChild className="w-full group">
-                          <Link to={tool.href}>
-                            Launch Tool
-                            <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Security Notice */}
-        <Card className="bg-gradient-card border-primary/20">
-          <CardContent className="p-6">
-            <div className="flex items-start space-x-4">
-              <div className="w-8 h-8 bg-success/20 rounded-lg flex items-center justify-center mt-1">
-                <Shield className="h-4 w-4 text-success" />
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-semibold text-success">Privacy & Security</h3>
-                <p className="text-sm text-muted-foreground">
-                  All tools in this suite operate entirely client-side. Your sensitive data is processed
-                  locally in your browser and never transmitted to external servers. This ensures maximum
-                  privacy and security for your cybersecurity analysis tasks.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Credits */}
-        <div className="text-center py-8 border-t border-border">
-          <p className="text-sm text-muted-foreground">
-            Powered by{' '}
-            <a
-              href="https://highmark.it"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              Highmark.it
-            </a>{' '}
-            - An open source project.{' '}
-            <a
-              href="https://github.com/HighMark-31/cyberkit"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              View on GitHub
-            </a>
-          </p>
-        </div>
+        ))}
+      </div>
       </div>
     </div>
   );

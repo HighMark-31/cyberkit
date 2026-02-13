@@ -22,6 +22,12 @@ import { HTTPHeaders } from "@/components/tools/HTTPHeaders";
 import { Ping } from "@/components/tools/Ping";
 import { Whois } from "@/components/tools/Whois";
 import { Traceroute } from "@/components/tools/Traceroute";
+import { SubnetCalculator } from "@/components/tools/SubnetCalculator";
+import { GoogleDorks } from "@/components/tools/GoogleDorks";
+import { ChmodCalculator } from "@/components/tools/ChmodCalculator";
+import { ExifViewer } from "@/components/tools/ExifViewer";
+import { UrlParser } from "@/components/tools/UrlParser";
+import { Terminal } from "@/components/tools/Terminal";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -46,6 +52,12 @@ const App = () => (
             <Route path="/ping" element={<Ping />} />
             <Route path="/whois" element={<Whois />} />
             <Route path="/traceroute" element={<Traceroute />} />
+            <Route path="/subnet-calculator" element={<SubnetCalculator />} />
+            <Route path="/google-dorks" element={<GoogleDorks />} />
+            <Route path="/chmod-calculator" element={<ChmodCalculator />} />
+            <Route path="/exif-viewer" element={<ExifViewer />} />
+            <Route path="/url-parser" element={<UrlParser />} />
+            <Route path="/terminal" element={<Terminal />} />
             {}
             <Route path="*" element={<NotFound />} />
           </Routes>

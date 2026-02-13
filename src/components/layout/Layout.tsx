@@ -24,7 +24,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
       {/*Main*/}
       <div className="flex-1 lg:pl-72">
-        <main className="min-h-screen pb-12">
+        <main className="min-h-screen pb-24 pt-4 lg:pt-0">
           {children}
         </main>
       </div>

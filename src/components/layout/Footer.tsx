@@ -4,7 +4,8 @@
 // -------- I have lost 30 hours of my life for this -------------
 // *************** RESPECT THE LICENSE OF PROJECT ***************
 
-import React, { useState } from 'react';
+import * as React from 'react';
+import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 import { Button } from '../ui/button';
 
@@ -52,30 +53,33 @@ const Footer = () => {
   );
 
   return (
-    <footer className="fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-t border-border z-50">
-      <div className="container mx-auto px-4 py-2">
+    <footer className="fixed bottom-0 right-0 left-0 lg:left-72 bg-background/80 backdrop-blur-md border-t border-white/5 z-40 transition-all duration-300">
+      <div className="px-6 py-3">
         <div className="flex items-center justify-center text-xs text-muted-foreground">
-          <span>
-            CyberKit is a Free & OpenSource Project of <a href="https://highmark.it" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Highmark.it</a> - Using this site agree the{' '}
+          <div className="flex items-center gap-4">
+            <span>
+              CyberKit OpenSource Project by <a href="https://highmark.it" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors font-medium">Highmark.it</a>
+            </span>
+            <span className="w-px h-3 bg-white/10"></span>
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
               <DialogTrigger asChild>
-                <button className="text-primary hover:underline cursor-pointer">
-                  TOS
+                <button className="hover:text-foreground transition-colors">
+                  Terms of Service
                 </button>
               </DialogTrigger>
-              <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+              <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto border-white/10 bg-zinc-950/95 backdrop-blur-xl">
                 <DialogHeader>
                   <DialogTitle>Terms of Service</DialogTitle>
                 </DialogHeader>
                 {tosContent}
                 <div className="flex justify-end pt-4">
-                  <Button onClick={() => setIsOpen(false)} variant="outline">
-                    Chiudi
+                  <Button onClick={() => setIsOpen(false)} variant="outline" className="border-white/10 hover:bg-white/5">
+                    Close
                   </Button>
                 </div>
               </DialogContent>
             </Dialog>
-          </span>
+          </div>
         </div>
       </div>
     </footer>
