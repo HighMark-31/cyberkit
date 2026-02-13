@@ -5,12 +5,12 @@
 **🛡️ Open-Source Cybersecurity Toolkit for Security Professionals & Developers**
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0-green.svg)](releases)
+[![Version](https://img.shields.io/badge/Version-2.0-green.svg)](releases)
 [![TypeScript](https://img.shields.io/badge/Built%20with-TypeScript-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Powered%20by-Vite-646CFF?logo=vite)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/UI%20Framework-React-61DAFB?logo=react)](https://react.dev/)
 
-[Live Demo](https://cyberkit.mylaby.space) • [Documentation](#-documentation) • [Features](#-key-features) • [Installation](#-installation) • [Contributing](#-contributing)
+[Live Demo](https://cyberkit.mylaby.space)
 
 </div>
 
