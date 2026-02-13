@@ -7,6 +7,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
+import { Github } from 'lucide-react';
 import { Button } from '../ui/button';
 
 const Footer = () => {
@@ -57,6 +58,16 @@ const Footer = () => {
       <div className="px-6 py-3">
         <div className="flex items-center justify-center text-xs text-muted-foreground">
           <div className="flex items-center gap-4">
+            <a 
+              href="https://github.com/HighMark-31/CyberKit" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center gap-1.5 hover:text-foreground transition-colors group"
+            >
+              <Github className="h-3.5 w-3.5 group-hover:scale-110 transition-transform" />
+              <span>GitHub</span>
+            </a>
+            <span className="w-px h-3 bg-white/10"></span>
             <span>
               CyberKit OpenSource Project by <a href="https://highmark.it" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors font-medium">Highmark.it</a>
             </span>

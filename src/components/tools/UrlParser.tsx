@@ -80,18 +80,18 @@ export const UrlParser = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-6">
-      <div className="text-center space-y-2">
-        <h1 className="text-3xl font-bold">URL Parser & Builder</h1>
-        <p className="text-muted-foreground">
+    <div className="max-w-4xl mx-auto space-y-6 animate-in fade-in duration-500">
+      <div className="space-y-2">
+        <h1 className="text-3xl font-bold tracking-tight text-white text-center">URL Parser & Builder</h1>
+        <p className="text-muted-foreground text-center">
           Analyze, modify, and reconstruct URLs for testing and debugging
         </p>
       </div>
 
       <div className="space-y-6">
-        <Card className="cyber-card">
+        <Card className="bg-card/30 border-white/10 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Input</CardTitle>
+            <CardTitle className="text-white">Input</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="flex gap-2">
@@ -108,33 +108,33 @@ export const UrlParser = () => {
         </Card>
 
         <div className="grid gap-6 md:grid-cols-2">
-          <Card className="cyber-card">
+          <Card className="bg-card/30 border-white/10 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle>Components</CardTitle>
+              <CardTitle className="text-white">Components</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <Label>Protocol</Label>
+                <Label className="text-white">Protocol</Label>
                 <Input value={protocol} onChange={(e) => setProtocol(e.target.value)} />
               </div>
               <div className="space-y-2">
-                <Label>Hostname</Label>
+                <Label className="text-white">Hostname</Label>
                 <Input value={hostname} onChange={(e) => setHostname(e.target.value)} />
               </div>
               <div className="space-y-2">
-                <Label>Path</Label>
+                <Label className="text-white">Path</Label>
                 <Input value={pathname} onChange={(e) => setPathname(e.target.value)} />
               </div>
               <div className="space-y-2">
-                <Label>Fragment (Hash)</Label>
+                <Label className="text-white">Fragment (Hash)</Label>
                 <Input value={hash} onChange={(e) => setHash(e.target.value)} />
               </div>
             </CardContent>
           </Card>
 
-          <Card className="cyber-card flex flex-col">
+          <Card className="bg-card/30 border-white/10 backdrop-blur-sm flex flex-col">
             <CardHeader className="flex flex-row items-center justify-between">
-              <CardTitle>Query Parameters</CardTitle>
+              <CardTitle className="text-white">Query Parameters</CardTitle>
               <Button size="sm" variant="ghost" onClick={addParam}>
                 <Plus className="h-4 w-4 mr-1" /> Add
               </Button>
@@ -168,12 +168,12 @@ export const UrlParser = () => {
           </Card>
         </div>
 
-        <Card className="cyber-card bg-primary/5 border-primary/20">
+        <Card className="bg-primary/5 border-primary/20 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Result URL</CardTitle>
+            <CardTitle className="text-white">Result URL</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="p-4 bg-background/50 rounded-lg break-all font-mono border border-white/10">
+            <div className="p-4 bg-background/50 rounded-xl break-all font-mono border border-white/10 text-primary">
               {builtUrl}
             </div>
             <div className="flex gap-2 justify-end">

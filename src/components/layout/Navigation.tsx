@@ -31,62 +31,13 @@ import {
   User,
   Database,
   Globe,
-  FileSearch
+  FileSearch,
+  Github
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-
-const navigationGroups = [
-  {
-    title: 'Password & Auth',
-    items: [
-      { name: 'Password Checker', href: '/password-checker', icon: Key },
-      { name: 'Password Generator', href: '/password-generator', icon: Lock },
-      { name: 'Hash Generator', href: '/hash-generator', icon: Hash },
-    ]
-  },
-  {
-    title: 'Network Tools',
-    items: [
-      { name: 'Ping', href: '/ping', icon: Zap },
-      { name: 'Traceroute', href: '/traceroute', icon: Network },
-      { name: 'Subnet Calculator', href: '/subnet-calculator', icon: Cpu },
-      { name: 'HTTP Headers', href: '/http-headers', icon: Network },
-      { name: 'SSL/TLS Checker', href: '/ssl-checker', icon: ShieldCheck },
-      { name: 'Advanced DNS Recon', href: '/dns-recon', icon: Globe },
-    ]
-  },
-  {
-    title: 'Web Security',
-    items: [
-      { name: 'Website Scanner', href: '/website-scanner', icon: Search },
-      { name: 'XSS Detector', href: '/xss-detector', icon: AlertTriangle },
-      { name: 'Log Analyzer', href: '/log-analyzer', icon: FileText },
-      { name: 'URL Parser', href: '/url-parser', icon: Link },
-      { name: 'Encoder/Decoder', href: '/encoder-decoder', icon: Code },
-    ]
-  },
-  {
-    title: 'OSINT & Recon',
-    items: [
-      { name: 'Sherlock Web', href: '/sherlock-web', icon: User },
-      { name: 'Subdomain Finder', href: '/subdomain-finder', icon: Globe },
-      { name: 'File Metadata', href: '/metadata-scanner', icon: FileSearch },
-      { name: 'Steganography Lab', href: '/steganography-lab', icon: Image },
-      { name: 'Google Dorks', href: '/google-dorks', icon: Search },
-      { name: 'Whois', href: '/whois', icon: Info },
-      { name: 'Exif Viewer', href: '/exif-viewer', icon: Image },
-    ]
-  },
-  {
-    title: 'System',
-    items: [
-      { name: 'Terminal', href: '/terminal', icon: Terminal },
-      { name: 'Chmod Calculator', href: '/chmod-calculator', icon: Calculator },
-    ]
-  }
-];
+import { toolCategories } from '@/lib/tools-config';
 
 export const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -94,8 +45,8 @@ export const Navigation = () => {
 
   useEffect(() => {
     // Select one random group to be open initially
-    const randomIndex = Math.floor(Math.random() * navigationGroups.length);
-    setOpenGroups([navigationGroups[randomIndex].title]);
+    const randomIndex = Math.floor(Math.random() * toolCategories.length);
+    setOpenGroups([toolCategories[randomIndex].title]);
   }, []);
 
   const toggleGroup = (title: string) => {
@@ -170,7 +121,17 @@ export const Navigation = () => {
             <span>Dashboard</span>
           </NavLink>
 
-          {navigationGroups.map((group) => (
+          <a
+            href="https://github.com/HighMark-31/CyberKit"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 group relative mb-4 text-muted-foreground hover:bg-white/5 hover:text-white"
+          >
+            <Github className="h-4 w-4 transition-transform group-hover:scale-110" />
+            <span>GitHub Repository</span>
+          </a>
+
+          {toolCategories.map((group) => (
             <Collapsible
               key={group.title}
               open={openGroups.includes(group.title)}
@@ -192,7 +153,7 @@ export const Navigation = () => {
                 </Button>
               </CollapsibleTrigger>
               <CollapsibleContent className="space-y-1">
-                {group.items.map((item) => {
+                {group.tools.map((item) => {
                   const Icon = item.icon;
                   return (
                     <NavLink

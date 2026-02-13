@@ -121,7 +121,7 @@ export const SherlockWeb = () => {
                 <Input 
                   id="username"
                   placeholder="e.g. john_doe"
-                  className="pl-10 bg-background/50 border-white/10"
+                  className="pl-10"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && startScan()}
@@ -130,7 +130,7 @@ export const SherlockWeb = () => {
             </div>
             <div className="flex items-end">
               <Button 
-                className="w-full md:w-auto h-10 px-8 bg-primary hover:bg-primary/90 text-white"
+                className="w-full md:w-auto px-8"
                 disabled={isScanning}
                 onClick={startScan}
               >

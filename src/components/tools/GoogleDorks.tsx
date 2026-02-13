@@ -31,22 +31,22 @@ export const GoogleDorks = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-6">
-      <div className="text-center space-y-2">
-        <h1 className="text-3xl font-bold">Google Dork Generator</h1>
-        <p className="text-muted-foreground">
+    <div className="max-w-4xl mx-auto space-y-6 animate-in fade-in duration-500">
+      <div className="space-y-2">
+        <h1 className="text-3xl font-bold tracking-tight text-white text-center">Google Dork Generator</h1>
+        <p className="text-muted-foreground text-center">
           Construct advanced Google search queries for OSINT and reconnaissance
         </p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
-        <Card className="cyber-card h-fit">
+        <Card className="bg-card/30 border-white/10 backdrop-blur-sm h-fit">
           <CardHeader>
-            <CardTitle>Query Parameters</CardTitle>
+            <CardTitle className="text-white">Query Parameters</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label>Target Site (site:)</Label>
+              <Label className="text-white">Target Site (site:)</Label>
               <Input 
                 placeholder="example.com" 
                 value={site} 
@@ -54,7 +54,7 @@ export const GoogleDorks = () => {
               />
             </div>
             <div className="space-y-2">
-              <Label>File Type (filetype:)</Label>
+              <Label className="text-white">File Type (filetype:)</Label>
               <Input 
                 placeholder="pdf, docx, xls, config" 
                 value={filetype} 
@@ -62,7 +62,7 @@ export const GoogleDorks = () => {
               />
             </div>
             <div className="space-y-2">
-              <Label>In Text (intext:)</Label>
+              <Label className="text-white">In Text (intext:)</Label>
               <Input 
                 placeholder="password, confidential" 
                 value={intext} 
@@ -70,7 +70,7 @@ export const GoogleDorks = () => {
               />
             </div>
             <div className="space-y-2">
-              <Label>In Title (intitle:)</Label>
+              <Label className="text-white">In Title (intitle:)</Label>
               <Input 
                 placeholder="index of" 
                 value={intitle} 
@@ -78,7 +78,7 @@ export const GoogleDorks = () => {
               />
             </div>
             <div className="space-y-2">
-              <Label>In URL (inurl:)</Label>
+              <Label className="text-white">In URL (inurl:)</Label>
               <Input 
                 placeholder="admin, login" 
                 value={inurl} 
@@ -88,12 +88,12 @@ export const GoogleDorks = () => {
           </CardContent>
         </Card>
 
-        <Card className="cyber-card h-fit">
+        <Card className="bg-card/30 border-white/10 backdrop-blur-sm h-fit">
           <CardHeader>
-            <CardTitle>Generated Query</CardTitle>
+            <CardTitle className="text-white">Generated Query</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
-            <div className="p-4 bg-muted/50 rounded-lg min-h-[100px] break-all font-mono text-sm border border-white/10 relative group">
+            <div className="p-4 bg-background/50 rounded-xl min-h-[100px] break-all font-mono text-sm border border-white/10 relative group text-primary">
               {dork || <span className="text-muted-foreground italic">Start typing to generate query...</span>}
             </div>
 

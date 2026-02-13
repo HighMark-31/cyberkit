@@ -8,6 +8,7 @@ import { ReactNode, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Navigation } from './Navigation';
 import Footer from './Footer';
+import { TermsGuard } from './TermsGuard';
 import { SEO_CONFIG } from '@/lib/seo-config';
 
 interface LayoutProps {
@@ -50,6 +51,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row bg-background">
+      <TermsGuard />
       {/* Sidebar*/}
       <div className="w-full lg:w-72 lg:flex-shrink-0">
         <div className="lg:fixed lg:inset-y-0 lg:w-72">
@@ -59,7 +61,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
       {/*Main*/}
       <div className="flex-1">
-        <main className="min-h-screen pb-24 pt-4 lg:pt-0">
+        <main className="min-h-screen pb-24 pt-10 lg:pt-12 px-4 sm:px-6 lg:px-8">
           {children}
         </main>
       </div>

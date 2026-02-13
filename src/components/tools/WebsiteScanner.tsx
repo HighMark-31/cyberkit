@@ -276,7 +276,7 @@ export const WebsiteScanner = () => {
                 <Input 
                   id="url"
                   placeholder="example.com"
-                  className="pl-10 bg-background/50 border-white/10 focus:border-primary/50 h-12"
+                  className="pl-10"
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && startScan()}
@@ -285,7 +285,7 @@ export const WebsiteScanner = () => {
             </div>
             <div className="flex items-end">
               <Button 
-                className="w-full md:w-auto h-12 px-8 bg-primary hover:bg-primary/90 text-white font-semibold"
+                className="w-full md:w-auto"
                 disabled={isScanning}
                 onClick={startScan}
               >

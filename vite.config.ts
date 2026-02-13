@@ -14,4 +14,44 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-ui': ['lucide-react', 'clsx', 'tailwind-merge'],
+          'vendor-query': ['@tanstack/react-query'],
+          'tools-group-security': [
+            './src/components/tools/WebsiteScanner.tsx',
+            './src/components/tools/XSSDetector.tsx',
+            './src/components/tools/SSLChecker.tsx'
+          ],
+          'tools-group-network': [
+            './src/components/tools/Ping.tsx',
+            './src/components/tools/Traceroute.tsx',
+            './src/components/tools/Whois.tsx',
+            './src/components/tools/DNSRecon.tsx',
+            './src/components/tools/SubdomainFinder.tsx'
+          ],
+          'tools-group-utils': [
+            './src/components/tools/PasswordGenerator.tsx',
+            './src/components/tools/HashGenerator.tsx',
+            './src/components/tools/EncoderDecoder.tsx',
+            './src/components/tools/UrlParser.tsx'
+          ]
+        },
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: 'assets/[ext]/[name]-[hash].[ext]'
+      }
+    },
+    chunkSizeWarningLimit: 1000,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    }
+  }
 }));
